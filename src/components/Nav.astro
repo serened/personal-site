@@ -1,9 +1,18 @@
 ---
 import NavLink from './NavLink.astro';
-import ThemeToggle from './ThemeToggle.astro';
 import siteConfig from '../data/site-config';
+import Thistle from './marks/Thistle.astro';
+import Lavender from './marks/Lavender.astro';
+import Belladonna from './marks/Belladonna.astro';
 
 const navLinks = siteConfig.headerNavLinks ?? [];
+
+// Herbal marker per nav destination; Home is unmarked (the masthead moth covers it).
+const marks = {
+    '/about': Thistle,
+    '/now': Lavender,
+    '/projects': Belladonna
+} as const;
 ---
 
 <nav class="relative min-h-10 pt-4 pb-12 sm:min-h-14 sm:pb-24 md:pt-8" aria-label="Primary navigation">
@@ -22,23 +31,28 @@ const navLinks = siteConfig.headerNavLinks ?? [];
                     id="menu-items"
                     class="menu max-md:bg-main max-md:border-main flex gap-6 max-md:absolute max-md:-top-2.5 max-md:-left-2.5 max-md:z-20 max-md:max-w-64 max-md:flex-col max-md:gap-1 max-md:border max-md:border-dashed max-md:px-3 max-md:pt-16 max-md:pb-10"
                 >
-                    {navLinks.map((link) => (
-                        <li class="py-1">
-                            <NavLink
-                                class="text-main font-serif text-xl hover:underline hover:decoration-1 hover:underline-offset-2 md:text-base"
-                                href={link.href}
-                            >
-                                {link.text}
-                            </NavLink>
-                        </li>
-                    ))}
+                    {navLinks.map((link) => {
+                        const Mark = marks[link.href as keyof typeof marks];
+                        return (
+                            <li class="py-1">
+                                <NavLink
+                                    class="text-main inline-flex items-center gap-1.5 font-serif text-xl hover:underline hover:decoration-1 hover:underline-offset-2 md:text-base"
+                                    href={link.href}
+                                >
+                                    {Mark && (
+                                        <span class="inline-flex w-[0.9em] shrink-0 text-clay" aria-hidden="true">
+                                            <Mark class="w-full" />
+                                        </span>
+                                    )}
+                                    {link.text}
+                                </NavLink>
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
         )
     }
-    <div class="absolute top-4 right-0 z-10 md:top-8">
-        <ThemeToggle />
-    </div>
 </nav>
 
 <style>

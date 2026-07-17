@@ -16,20 +16,6 @@ export type Hero = {
     actions?: Link[];
 };
 
-export type SubscribeForm = {
-    action: string;
-    emailFieldName?: string;
-    hiddenFields?: { name: string; value: string }[];
-    honeypotFieldName?: string;
-};
-
-export type Subscribe = {
-    enabled?: boolean;
-    title?: string;
-    text?: string;
-    form?: SubscribeForm;
-};
-
 export type SiteConfig = {
     website: string;
     avatar?: ImageInput;
@@ -38,10 +24,7 @@ export type SiteConfig = {
     description: string;
     image?: ImageInput;
     headerNavLinks?: Link[];
-    footerNavLinks?: Link[];
     socialLinks?: Link[];
     hero?: Hero;
-    subscribe?: Subscribe;
-    postsPerPage?: number;
     projectsPerPage?: number;
 };
