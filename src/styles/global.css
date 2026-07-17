@@ -1,87 +1,120 @@
-@import '@fontsource-variable/inter' layer(base);
+@import '@fontsource-variable/fraunces' layer(base);
+@import '@fontsource-variable/fraunces/wght-italic.css' layer(base);
 @import '@fontsource-variable/newsreader' layer(base);
 @import '@fontsource-variable/newsreader/wght-italic.css' layer(base);
 
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* ---- Design tokens: "Victorian naturalist, two-ink" ---- */
+@theme {
+    --color-paper: #f4ecdc;
+    --color-paper-edge: #dccfb4;
+    --color-ink: #2e2922;
+    --color-ink-soft: #4e4436;
+    --color-ink-faint: #6e5f4b;
+    --color-ink-stone: #8a7658;
+    --color-clay: #a65a33;
+    --color-teal: #37817a;
+    --color-teal-underline: #9dc4bf;
+    --color-rule: #c4b49a;
 
-:root {
-    --text-main: #171717;
-    --bg-main: #f2f1ec;
-    --bg-muted: #eae9e1;
-    --border-main: #171717;
-}
-html.dark {
-    --text-main: #f2f1ec;
-    --bg-main: #171717;
-    --bg-muted: #242424;
-    --border-main: #f2f1ec;
+    --font-heading: 'Fraunces Variable', Georgia, serif;
+    --font-body: 'Newsreader Variable', Georgia, serif;
 }
 
-/* Cyan */
-/*
+/* Plain custom properties: referenced by the inline SVG marks (--sc-paper etc.)
+   and used to repoint Dante's semantic variables at the paper/ink palette. */
 :root {
-    --text-main: #162a2b;
-    --bg-main: #d6e0e2;
-    --bg-muted: #ccd8db;
-    --border-main: #162a2b;
-}
-html.dark {
-    --text-main: #d6e0e2;
-    --bg-main: #162a2b;
-    --bg-muted: #1c3537;
-    --border-main: #d6e0e2;
-}
-*/
+    --sc-paper: #f4ecdc;
+    --sc-paper-edge: #dccfb4;
+    --sc-ink: #2e2922;
+    --sc-ink-soft: #4e4436;
+    --sc-ink-faint: #6e5f4b;
+    --sc-ink-stone: #8a7658;
+    --sc-clay: #a65a33;
+    --sc-teal: #37817a;
+    --sc-teal-underline: #9dc4bf;
+    --sc-rule: #c4b49a;
 
-/* Green */
-/*
-:root {
-    --text-main: #3a4238;
-    --bg-main: #f3efe6;
-    --bg-muted: #eee9dc;
-    --border-main: #3a4238;
+    /* Dante's semantic vars, repointed. Light mode only. */
+    --text-main: var(--sc-ink);
+    --bg-main: var(--sc-paper);
+    --bg-muted: var(--sc-paper-edge);
+    --border-main: var(--sc-paper-edge);
 }
-html.dark {
-    --text-main: #f3efe6;
-    --bg-main: #5e6c5b;
-    --bg-muted: #596756;
-    --border-main: #f3efe6;
-}
-*/
 
 @theme inline {
-    --font-sans: 'Inter Variable', sans-serif;
-    --font-serif: 'Newsreader Variable', serif;
+    --font-sans: 'Newsreader Variable', Georgia, serif;
+    --font-serif: 'Fraunces Variable', Georgia, serif;
     --text-color-main: var(--text-main);
     --background-color-main: var(--bg-main);
     --background-color-muted: var(--bg-muted);
     --border-color-main: var(--border-main);
 }
 
-@layer utilities {
-    .prose {
-        --tw-prose-body: var(--text-color-main);
-        --tw-prose-headings: var(--text-color-main);
-        --tw-prose-lead: var(--text-color-main);
-        --tw-prose-links: var(--text-color-main);
-        --tw-prose-bold: var(--text-color-main);
-        --tw-prose-counters: var(--text-color-main);
-        --tw-prose-bullets: var(--text-color-main);
-        --tw-prose-hr: var(--border-color-main);
-        --tw-prose-quotes: var(--text-color-main);
-        --tw-prose-quote-borders: var(--border-color-main);
-        --tw-prose-captions: var(--text-color-main);
-        --tw-prose-kbd: var(--text-color-main);
-        --tw-prose-code: var(--text-color-main);
-        --tw-prose-th-borders: var(--border-color-main);
-        --tw-prose-td-borders: var(--border-color-main);
+@layer base {
+    body {
+        background: var(--sc-paper);
+        color: var(--sc-ink);
+        font-family: 'Newsreader Variable', Georgia, serif;
     }
 
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: 'Fraunces Variable', Georgia, serif;
+    }
+}
+
+@layer utilities {
+    /* Small caps section labels */
+    .small-caps {
+        font-variant: small-caps;
+        letter-spacing: 0.16em;
+        color: var(--sc-ink-faint);
+    }
+
+    /* Clay drop cap for opening paragraphs */
+    .drop-cap::first-letter {
+        font-family: 'Fraunces Variable', Georgia, serif;
+        font-weight: 500;
+        color: var(--sc-clay);
+        float: left;
+        font-size: 3.2em;
+        line-height: 0.8;
+        padding: 0.08em 0.12em 0 0;
+    }
+
+    .prose {
+        --tw-prose-body: var(--sc-ink);
+        --tw-prose-headings: var(--sc-ink);
+        --tw-prose-lead: var(--sc-ink-soft);
+        --tw-prose-links: var(--sc-teal);
+        --tw-prose-bold: var(--sc-ink);
+        --tw-prose-counters: var(--sc-ink-faint);
+        --tw-prose-bullets: var(--sc-ink-stone);
+        --tw-prose-hr: var(--sc-rule);
+        --tw-prose-quotes: var(--sc-ink-soft);
+        --tw-prose-quote-borders: var(--sc-rule);
+        --tw-prose-captions: var(--sc-ink-faint);
+        --tw-prose-kbd: var(--sc-ink);
+        --tw-prose-code: var(--sc-ink);
+        --tw-prose-th-borders: var(--sc-rule);
+        --tw-prose-td-borders: var(--sc-rule);
+    }
+
+    /* Teal is reserved for content links: teal ink, no underline, a hairline
+       teal-underline rule beneath that firms up on hover. */
     .prose a {
-        @apply underline font-normal decoration-1 underline-offset-2 decoration-dashed hover:decoration-solid;
+        color: var(--sc-teal);
+        text-decoration: none;
+        border-bottom: 1px solid var(--sc-teal-underline);
+    }
+
+    .prose a:hover {
+        border-bottom-color: var(--sc-teal);
     }
 
     .prose :where(h1, h2, h3, h4, h5, h6) {
@@ -93,6 +126,6 @@ html.dark {
     }
 
     .prose blockquote {
-        @apply font-serif font-normal italic border-none pl-0 text-[1.375em] leading-snug sm:text-[1.66667em];
+        @apply border-none pl-0 font-serif text-[1.375em] leading-snug font-normal italic sm:text-[1.66667em];
     }
 }

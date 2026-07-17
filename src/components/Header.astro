@@ -1,37 +1,14 @@
 ---
 import siteConfig from '../data/site-config';
-import CustomImage from './CustomImage.astro';
-
-const titleClass = 'text-theme-foreground font-serif text-2xl leading-tight font-medium sm:text-3xl';
+import Moth from './marks/Moth.astro';
 ---
 
-<header class="mx-auto mb-12 flex w-full max-w-3xl items-center gap-4 sm:mb-16">
-    {
-        siteConfig.avatar?.src && (
-            <a href="/">
-                <CustomImage
-                    class="aspect-square w-16 rounded-full object-cover sm:w-20"
-                    {...siteConfig.avatar}
-                    loading="eager"
-                    fetchpriority="high"
-                    width={80}
-                    height={80}
-                    widths={[80, 160]}
-                    sizes="80px"
-                />
-            </a>
-        )
-    }
-    <div class="grow">
-        {
-            siteConfig.avatar?.src ? (
-                <p class={titleClass}>{siteConfig.title}</p>
-            ) : (
-                <a class={titleClass} href="/">
-                    {siteConfig.title}
-                </a>
-            )
-        }
-        {siteConfig.subtitle && <p class="text-sm leading-tight">{siteConfig.subtitle}</p>}
-    </div>
+<header class="mx-auto mb-8 flex w-full max-w-3xl items-center justify-between gap-4 pt-2 sm:mb-10">
+    <a class="flex items-center gap-3" href="/" aria-label={`${siteConfig.title}, home`}>
+        <span class="text-ink block w-11 shrink-0">
+            <Moth class="w-full" />
+        </span>
+        <span class="text-clay font-serif text-[17px] font-medium lowercase italic">{siteConfig.title}</span>
+    </a>
+    {siteConfig.subtitle && <p class="text-ink-faint hidden text-[15px] italic sm:block">{siteConfig.subtitle}</p>}
 </header>

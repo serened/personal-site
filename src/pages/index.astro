@@ -1,46 +1,77 @@
 ---
-import { getCollection } from 'astro:content';
-import Button from '../components/Button.astro';
-import Hero from '../components/Hero.astro';
-import PostPreview from '../components/PostPreview.astro';
-import ProjectPreview from '../components/ProjectPreview.astro';
 import siteConfig from '../data/site-config';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { sortItemsByDateDesc } from '../utils/data-utils';
+import Thistle from '../components/marks/Thistle.astro';
+import Lavender from '../components/marks/Lavender.astro';
+import Belladonna from '../components/marks/Belladonna.astro';
+import MothFleuron from '../components/marks/MothFleuron.astro';
 
-const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-const featuredPosts = posts.filter(({ data }) => data.isFeatured);
-
-const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
-const featuredProjects = projects.filter(({ data }) => data.isFeatured);
+// The home page is its own hub: the "contents" list stands in for a nav bar.
+const contents = [
+    { text: 'About', href: '/about', Mark: Thistle },
+    { text: 'Now', href: '/now', Mark: Lavender },
+    { text: 'Garden', href: '/projects', Mark: Belladonna }
+];
 ---
 
-<BaseLayout description={siteConfig.description}>
-    <Hero {...siteConfig.hero} />
-    {
-        featuredProjects?.length > 0 && (
-            <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Projects</h2>
-                {featuredProjects.map((project) => (
-                    <ProjectPreview project={project} class="mb-10 sm:mb-12" headingLevel="h3" />
-                ))}
-                <div class="mt-12 sm:mt-16">
-                    <Button href="/projects">View All Projects</Button>
-                </div>
+<BaseLayout description={siteConfig.description} showNav={false}>
+    {/* Intro statement */}
+    <p class="text-ink max-w-[600px] font-serif text-3xl leading-[1.16] font-light sm:text-[42px]">
+    Software engineer, then nurse, now founder. The throughline, as far as I can tell, is
+        <span class="text-clay font-medium italic">dirt under the fingernails</span>.
+    </p>
+
+    {/* Body: prose + contents sidebar */}
+    <div class="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-[1.6fr_1fr] sm:gap-10">
+        <div class="text-ink space-y-4">
+            <p class="drop-cap text-[19px] leading-[1.7]">
+            I went from a remote-working desk jockey to years in hospital rooms and chemo suites. I left to build software 
+            for independent bookstores because oncology taught me that this life is short, and I love books too much to not work with them. 
+            Everyone said working with bookstores was niche, and they were right, and that's the point. 
+            </p>
+
+            <p class="text-[19px] leading-[1.7]"> I grew up in New Mexico, spent two decades in Seattle, and now live in Philadelphia.
+            I spend my time walking among history and slowly convincing a concrete backyard that it's a garden.
+            </p>
+            <p class="text-[19px] leading-[1.7]">
+                On weekends I muck stalls for rescued livestock, on the theory that a farm should be earned before it's
+                owned. This site keeps track of what I'm
+                <a class="text-teal border-teal-underline hover:border-teal border-b" href="/now">reading, making, and growing</a>.
+            </p>
+        </div>
+        <aside class="border-rule self-start sm:border-l sm:pl-6">
+            <div class="small-caps mb-4">contents</div>
+            <ul class="flex flex-col gap-4 text-[17px]">
+                {
+                    contents.map(({ text, href, Mark }) => (
+                        <li class="flex items-center gap-2.5">
+                            <span class="text-clay inline-flex w-[18px] shrink-0" aria-hidden="true">
+                                <Mark class="w-full" />
+                            </span>
+                            <a class="text-teal" href={href}>
+                                {text}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </aside>
+    </div>
+
+    {/* Lately */}
+    <div class="mt-14 sm:mt-20">
+        <div class="flex items-center gap-4">
+            <span class="small-caps shrink-0">lately</span>
+            <div class="flex flex-1 items-center gap-2.5">
+                <div class="border-rule h-px flex-1 border-b"></div>
+                <span class="text-ink-faint inline-flex w-[26px] shrink-0" aria-hidden="true">
+                    <MothFleuron class="w-full" />
+                </span>
+                <div class="border-rule h-px flex-1 border-b"></div>
             </div>
-        )
-    }
-    {
-        featuredPosts?.length > 0 && (
-            <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Writing</h2>
-                {featuredPosts.map((post) => (
-                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
-                ))}
-                <div class="mt-12 sm:mt-16">
-                    <Button href="/blog">View All Posts</Button>
-                </div>
-            </div>
-        )
-    }
+        </div>
+        <p class="text-ink-soft mt-4 max-w-[560px] font-serif text-[18px] leading-[1.65] italic">
+            Antartica trip · pre book club reads competing with my TBR mountain · the bird-and-bee fountain · neverending solo dev tasks
+        </p>
+    </div>
 </BaseLayout>
