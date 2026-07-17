@@ -1,7 +1,7 @@
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
-    website: 'https://serenecareaga.netlify.app',
+    website: 'https://serenecareaga.com',
     title: 'Serene Careaga',
     subtitle: 'a personal site, kept loosely',
     description: 'Serene Careaga: portfolio, resume, about.',
