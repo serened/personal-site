@@ -1,13 +1,10 @@
 ---
-import siteConfig from '../data/site-config';
 import Guardian from './marks/Guardian.astro';
 
-// "elsewhere" links: the two sibling projects (placeholder hrefs for Serene to
-// fill) followed by any configured social links.
+// "elsewhere": the two sibling projects. Placeholder hrefs for Serene to fill.
 const elsewhere = [
-    { text: 'Bookplate', href: '#' },
-    { text: 'OrganizedSpine', href: '#' },
-    ...(siteConfig.socialLinks ?? [])
+    { text: 'Bookplate', href: 'https://bookplate.app' },
+    { text: 'OrganizedSpine', href: 'https://organizedspine.com' }
 ];
 ---
 
@@ -30,7 +27,7 @@ const elsewhere = [
                 ))
             }
         </p>
-        <p class="text-ink-faint font-serif text-sm">grew up in New Mexico · lives in Philadelphia</p>
+        <p class="text-ink-faint font-serif text-sm">dreaming about margharita pizza · still a licensed RN, just in case</p>
     </div>
     <span class="text-ink-stone block w-10 shrink-0">
         <Guardian class="w-full" />

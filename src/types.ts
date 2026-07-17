@@ -9,22 +9,13 @@ export type Link = {
     href: string;
 };
 
-export type Hero = {
-    title?: string;
-    text?: string;
-    image?: ImageInput;
-    actions?: Link[];
-};
-
 export type SiteConfig = {
     website: string;
-    avatar?: ImageInput;
     title: string;
     subtitle?: string;
     description: string;
     image?: ImageInput;
     headerNavLinks?: Link[];
     socialLinks?: Link[];
-    hero?: Hero;
     projectsPerPage?: number;
 };
