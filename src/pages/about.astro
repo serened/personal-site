@@ -1,58 +1,17 @@
 ---
 import siteConfig from '../data/site-config';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Thistle from '../components/marks/Thistle.astro';
-import Lavender from '../components/marks/Lavender.astro';
-import Hemlock from '../components/marks/Hemlock.astro';
-import MothFleuron from '../components/marks/MothFleuron.astro';
-
-// The home page is its own hub: the "contents" list stands in for a nav bar.
-const contents = [
-    { text: 'About', href: '/about', Mark: Thistle },
-    { text: 'Now', href: '/now', Mark: Lavender },
-    { text: 'Garden', href: '/projects', Mark: Hemlock }
-];
+import ContentsNav from '../components/ContentsNav.astro';
 ---
 
-<BaseLayout description={siteConfig.description} showNav={false}>
-    {/* Intro statement */}
-    <p class="text-ink max-w-[600px] font-serif text-3xl leading-[1.16] font-light sm:text-[42px]">
-    Hi, I'm Serene. I am more than my career pivots and hobbies. I live heart-forward, 
-    <span class="text-clay font-medium italic">chasing fireflies and feeling alive.</span>
-    </p>
-
-    {/* Body: prose + contents sidebar */}
-    <div class="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-[1.6fr_1fr] sm:gap-10">
-        <div class="text-ink space-y-4">
-            <p class="text-[19px] leading-[1.7]"> I grew up in New Mexico, spent nearly two decades in Seattle, and now live in Philadelphia. I spend my time walking my neighborhood vibrant with history and mosaics. I am also slowly convincing a concrete backyard that it's a garden. I am building community and nurturing friendships.
-            </p>
-            <p class="text-[19px] leading-[1.7]">
-                On weekends I dream of mucking stalls for rescued livestock serving the theory that a farm should be earned before it's
-                owned. I see llamas and guardian dogs and horses when I sleep, when I dream.
-            </p>
-            <p class="text-[19px] leading-[1.7]">
-                This site isn't a portfolio site, because resumes are boring and I am more interesting than
-                my college degrees. This site keeps track of what I'm
-                <a class="text-teal border-teal-underline hover:border-teal border-b" href="/now">reading, making, and growing</a>.
-            </p>
+<BaseLayout title="About" description={siteConfig.description} showNav={false}>
+    <div class="mt-6 grid gap-8 sm:mt-10 sm:grid-cols-[1.6fr_1fr] sm:gap-10">
+        <div class="text-ink space-y-5 text-[19px] leading-[1.75]">
+            <p>Hi, I'm Serene. I am more than my career pivots and hobbies. I live heart-forward, <span class="text-clay font-medium italic">chasing fireflies and feeling alive.</span></p>
+            <p>I grew up in New Mexico, spent nearly two decades in Seattle, and now live in Philadelphia. I spend my time walking my neighborhood vibrant with history and mosaics. I am also slowly convincing a concrete backyard that it's a garden. I am building community and nurturing friendships.</p>
+            <p>On weekends I dream of mucking stalls for rescued livestock serving the theory that a farm should be earned before it's owned. I see llamas and guardian dogs and horses when I sleep, when I dream.</p>
+            <p>This site isn't a portfolio site, because resumes are boring and I am more interesting than my college degrees. This site keeps track of what I'm <a class="text-teal border-teal-underline hover:border-teal border-b" href="/now">reading, making, and growing</a>.</p>
         </div>
-        <aside class="border-rule self-start sm:border-l sm:pl-6">
-            <div class="small-caps mb-4">contents</div>
-            <ul class="flex flex-col gap-4 text-[17px]">
-                {
-                    contents.map(({ text, href, Mark }) => (
-                        <li class="flex items-center gap-2.5">
-                            <span class="text-clay inline-flex h-7 shrink-0" aria-hidden="true">
-                                <Mark class="h-full w-auto" />
-                            </span>
-                            <a class="text-teal" href={href}>
-                                {text}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </aside>
+        <ContentsNav />
     </div>
-
 </BaseLayout>

@@ -3,7 +3,7 @@ import NavLink from './NavLink.astro';
 import siteConfig from '../data/site-config';
 import Thistle from './marks/Thistle.astro';
 import Lavender from './marks/Lavender.astro';
-import Belladonna from './marks/Belladonna.astro';
+import Hemlock from './marks/Hemlock.astro';
 
 const navLinks = siteConfig.headerNavLinks ?? [];
 
@@ -11,7 +11,7 @@ const navLinks = siteConfig.headerNavLinks ?? [];
 const marks = {
     '/about': Thistle,
     '/now': Lavender,
-    '/projects': Belladonna
+    '/projects': Hemlock
 } as const;
 ---
 
@@ -40,8 +40,8 @@ const marks = {
                                     href={link.href}
                                 >
                                     {Mark && (
-                                        <span class="inline-flex w-[0.9em] shrink-0 text-clay" aria-hidden="true">
-                                            <Mark class="w-full" />
+                                        <span class="inline-flex h-[1.5em] shrink-0 text-clay" aria-hidden="true">
+                                            <Mark class="h-full w-auto" />
                                         </span>
                                     )}
                                     {link.text}

@@ -1,0 +1,30 @@
+---
+import Thistle from './marks/Thistle.astro';
+import Lavender from './marks/Lavender.astro';
+import Hemlock from './marks/Hemlock.astro';
+
+// Site sections, standing in for a nav bar. Shared by every page's contents sidebar.
+const contents = [
+    { text: 'About', href: '/about', Mark: Thistle },
+    { text: 'Now', href: '/now', Mark: Lavender },
+    { text: 'Garden', href: '/projects', Mark: Hemlock }
+];
+---
+
+<aside class="border-rule self-start sm:border-l sm:pl-6">
+    <div class="small-caps mb-4">contents</div>
+    <ul class="flex flex-col gap-4 text-[17px]">
+        {
+            contents.map(({ text, href, Mark }) => (
+                <li class="flex items-center gap-2.5">
+                    <span class="text-clay inline-flex h-7 shrink-0" aria-hidden="true">
+                        <Mark class="h-full w-auto" />
+                    </span>
+                    <a class="text-teal" href={href}>
+                        {text}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</aside>
