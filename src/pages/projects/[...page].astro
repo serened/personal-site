@@ -3,6 +3,7 @@ import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Pagination from '../../components/Pagination.astro';
 import ProjectPreview from '../../components/ProjectPreview.astro';
+import ContentsNav from '../../components/ContentsNav.astro';
 import siteConfig from '../../data/site-config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
@@ -18,8 +19,14 @@ const { page } = Astro.props;
 const portfolio = page.data;
 ---
 
-<BaseLayout title="Garden" description="A garden of projects and things made." showHeader={false}>
-    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Garden</h1>
-    {portfolio.map((project) => <ProjectPreview project={project} class="mb-10 sm:mb-12" />)}
-    <Pagination page={page} class="my-16 sm:my-24" />
+<BaseLayout title="Garden" description="A garden of projects and things made." showNav={false}>
+    <div class="mt-6 grid gap-8 sm:mt-10 sm:grid-cols-[1.6fr_1fr] sm:gap-10">
+        <div>
+            <h1 class="mb-3 font-serif text-2xl leading-tight italic sm:text-4xl">Garden</h1>
+            <p class="text-ink-soft mb-12 max-w-[540px] text-[17px] italic sm:mb-16">Things I'm growing and making, in the yard and on the screen.</p>
+            {portfolio.map((project) => <ProjectPreview project={project} class="mb-10 sm:mb-12" />)}
+            <Pagination page={page} class="mt-16 sm:mt-20" />
+        </div>
+        <ContentsNav />
+    </div>
 </BaseLayout>

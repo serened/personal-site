@@ -1,14 +1,14 @@
 ---
 import Guardian from './marks/Guardian.astro';
 
-// "elsewhere": the two sibling projects. Placeholder hrefs for Serene to fill.
+// "elsewhere": the two sibling projects.
 const elsewhere = [
     { text: 'Bookplate', href: 'https://bookplate.app' },
     { text: 'OrganizedSpine', href: 'https://organizedspine.com' }
 ];
 ---
 
-<footer class="border-paper-edge mx-auto mt-16 flex w-full max-w-3xl items-end justify-between gap-6 border-t pt-6 pb-10 sm:mt-24 sm:pb-14">
+<footer class="border-paper-edge mx-auto mt-16 flex w-full max-w-3xl items-center justify-between gap-6 border-t pt-6 pb-10 sm:mt-24 sm:pb-14">
     <div class="flex flex-col gap-2">
         <p class="text-ink-faint text-sm">
             <span class="small-caps">elsewhere:</span>{' '}
@@ -27,9 +27,12 @@ const elsewhere = [
                 ))
             }
         </p>
-        <p class="text-ink-faint font-serif text-sm">dreaming about margharita pizza · still a licensed RN, just in case</p>
+        <p class="text-ink-faint font-serif text-sm">dreaming about margherita pizza · still a licensed RN, just in case</p>
+        <p class="text-sm">
+            <a class="text-teal hover:text-ink" href="/contact">say hello</a>
+        </p>
     </div>
-    <span class="text-ink-stone block w-10 shrink-0">
-        <Guardian class="w-full" />
+    <span class="text-ink-faint inline-flex h-20 shrink-0">
+        <Guardian class="h-full w-auto" />
     </span>
 </footer>
