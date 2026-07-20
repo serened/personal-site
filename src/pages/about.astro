@@ -17,25 +17,22 @@ const contents = [
 <BaseLayout description={siteConfig.description} showNav={false}>
     {/* Intro statement */}
     <p class="text-ink max-w-[600px] font-serif text-3xl leading-[1.16] font-light sm:text-[42px]">
-    Software engineer, then nurse, now founder. The throughline, as far as I can tell, is
-        <span class="text-clay font-medium italic">dirt under the fingernails</span>.
+    Hi, I'm Serene. I am more than my career pivots and hobbies. I live heart-forward, 
+    <span class="text-clay font-medium italic">chasing fireflies and feeling alive.</span>
     </p>
 
     {/* Body: prose + contents sidebar */}
     <div class="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-[1.6fr_1fr] sm:gap-10">
         <div class="text-ink space-y-4">
-            <p class="drop-cap text-[19px] leading-[1.7]">
-            I went from a remote-working desk jockey to years in hospital rooms and chemo suites. I left to build software 
-            for independent bookstores because oncology taught me that this life is short, and I love books too much to not work with them. 
-            Everyone said working with bookstores was niche, and they were right, and that's the point. 
-            </p>
-
-            <p class="text-[19px] leading-[1.7]"> I grew up in New Mexico, spent two decades in Seattle, and now live in Philadelphia.
-            I spend my time walking among history and slowly convincing a concrete backyard that it's a garden.
+            <p class="text-[19px] leading-[1.7]"> I grew up in New Mexico, spent nearly two decades in Seattle, and now live in Philadelphia. I spend my time walking my neighborhood vibrant with history and mosaics. I am also slowly convincing a concrete backyard that it's a garden. I am building community and nurturing friendships.
             </p>
             <p class="text-[19px] leading-[1.7]">
-                On weekends I muck stalls for rescued livestock, on the theory that a farm should be earned before it's
-                owned. This site keeps track of what I'm
+                On weekends I dream of mucking stalls for rescued livestock serving the theory that a farm should be earned before it's
+                owned. I see llamas and guardian dogs and horses when I sleep, when I dream.
+            </p>
+            <p class="text-[19px] leading-[1.7]">
+                This site isn't a portfolio site, because resumes are boring and I am more interesting than
+                my college degrees. This site keeps track of what I'm
                 <a class="text-teal border-teal-underline hover:border-teal border-b" href="/now">reading, making, and growing</a>.
             </p>
         </div>
@@ -58,20 +55,4 @@ const contents = [
         </aside>
     </div>
 
-    {/* Lately */}
-    <div class="mt-14 sm:mt-20">
-        <div class="flex items-center gap-4">
-            <span class="small-caps shrink-0">lately</span>
-            <div class="flex flex-1 items-center gap-2.5">
-                <div class="border-rule h-px flex-1 border-b"></div>
-                <span class="text-ink-faint inline-flex w-10 shrink-0" aria-hidden="true">
-                    <MothFleuron class="w-full" />
-                </span>
-                <div class="border-rule h-px flex-1 border-b"></div>
-            </div>
-        </div>
-        <p class="text-ink-soft mt-4 max-w-[560px] font-serif text-[18px] leading-[1.65] italic">
-            Antartica trip · pre book club reads competing with my TBR mountain · the bird-and-bee fountain · neverending solo dev tasks
-        </p>
-    </div>
 </BaseLayout>
