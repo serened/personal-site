@@ -4,7 +4,11 @@ const siteConfig: SiteConfig = {
     website: 'https://serenecareaga.com',
     title: 'Serene Careaga',
     subtitle: 'a personal site, generally',
-    description: 'Serene Careaga: portfolio, resume, about.',
+    description: 'The personal site of Serene Careaga: software, books, and a concrete backyard slowly becoming a garden.',
+    image: {
+        src: '/og.png',
+        alt: 'Serene Careaga'
+    },
     headerNavLinks: [
         {
             text: 'Home',

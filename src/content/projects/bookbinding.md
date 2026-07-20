@@ -4,17 +4,15 @@ description: 'Learning to fold, sew, and case-in my own books by hand.'
 publishDate: 'Apr 01 2026'
 ---
 
-<!-- SCAFFOLD. Placeholder copy to rewrite in your own words, then delete these comment lines. -->
-
-A sentence or two on what drew you to bookbinding and what you've made so far.
+I spend all day building software for books, so binding them by hand is the analog counterweight. I am a beginner, learning to turn loose paper into something you can actually shelve.
 
 ## What I'm learning
 
-The structures and techniques you're practicing: signatures, sewing, covers, whatever you're on.
+The basics, for now: folding signatures, sewing them together, and wrapping a cover that holds. It is slow work and my corners are not square yet.
 
 ## Notes
 
-Tools you reach for, mistakes worth remembering, and what you want to bind next.
+It pairs with the paper I am learning to make, so the real goal is a book that is mine end to end, from pulp to cover. Recommendations for good beginner resources are always welcome.
 
 <!-- Add photos when ready: drop files in src/assets/images/ and reference them like:
 ![A short caption](../../assets/images/bookbinding.jpg) -->

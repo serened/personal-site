@@ -4,17 +4,15 @@ description: 'Pressing and hang-drying cuttings from the garden to keep the seas
 publishDate: 'Jun 01 2026'
 ---
 
-<!-- SCAFFOLD. Placeholder copy to rewrite in your own words, then delete these comment lines. -->
-
-A sentence or two on how you got into this and what you're making with it.
+Every year I lose the garden to autumn, so I started pressing and hang-drying cuttings to hold onto it a little longer. Right now most of what I dry is headed toward handmade bookmarks for the beta readers who helped me launch Bookplate.
 
 ## What I'm drying
 
-The flowers and methods you're using: pressing, hanging, silica, whatever it is.
+A rotating mix from the yard: herbs going to seed, dahlias as they fade, whatever holds its shape. Pressing for the flat pieces, hanging in small bunches for the rest.
 
 ## Notes
 
-What holds its color, what doesn't, and where the dried pieces end up.
+Color is the hard part. Some blooms keep it and some go brown no matter what I do. The plan is to pair the dried pieces with paper I am (messily) learning to make myself.
 
 <!-- Add photos when ready: drop files in src/assets/images/ and reference them like:
 ![A short caption](../../assets/images/drying-flowers.jpg) -->

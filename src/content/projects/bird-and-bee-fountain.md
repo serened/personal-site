@@ -4,17 +4,15 @@ description: 'A backyard water source for the pollinators and the birds. Part sc
 publishDate: 'Jul 01 2026'
 ---
 
-<!-- SCAFFOLD. Placeholder copy to rewrite in your own words, then delete these comment lines. -->
-
-A sentence or two on what this is and why you started building it.
+Philadelphia summers run hot and dry on the pollinators, so I built a small backyard fountain to keep the neighborhood bees and birds watered through the worst of it. It is equal parts sculpture and habitat, made in true DIY fashion.
 
 ## How it's going
 
-Where it stands right now: what's working, what's still rough, what's next.
+The bees found it before the birds did. The fussy part has been keeping the water fresh and the landing spots shallow enough for insects, who drown more easily than you would think. I am still tuning the flow so it stays full in the heat without going stagnant.
 
 ## Notes
 
-Anything you learned or want to remember: the plants around it, who's been visiting, what you'd do differently.
+I planted around the base so the whole corner reads as one small watering hole. The shallow ledge matters more than the height or the splash, at least to the bees.
 
 <!-- Add photos when ready: drop files in src/assets/images/ and reference them like:
 ![A short caption](../../assets/images/bird-and-bee-fountain.jpg) -->

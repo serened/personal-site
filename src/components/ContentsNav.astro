@@ -9,22 +9,35 @@ const contents = [
     { text: 'Now', href: '/now', Mark: Lavender },
     { text: 'Garden', href: '/projects', Mark: Hemlock }
 ];
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isCurrent = (href: string) => {
+    const target = href.replace(/\/+$/, '') || '/';
+    return path === target || (target !== '/' && path.startsWith(target + '/'));
+};
 ---
 
 <aside class="border-rule self-start sm:border-l sm:pl-6">
     <div class="small-caps mb-4">contents</div>
     <ul class="flex flex-col gap-4 text-[17px]">
         {
-            contents.map(({ text, href, Mark }) => (
-                <li class="flex items-center gap-2.5">
-                    <span class="text-clay inline-flex h-7 shrink-0" aria-hidden="true">
-                        <Mark class="h-full w-auto" />
-                    </span>
-                    <a class="text-teal" href={href}>
-                        {text}
-                    </a>
-                </li>
-            ))
+            contents.map(({ text, href, Mark }) => {
+                const current = isCurrent(href);
+                return (
+                    <li class="flex items-center gap-2.5">
+                        <span class="text-clay inline-flex h-7 shrink-0" aria-hidden="true">
+                            <Mark class="h-full w-auto" />
+                        </span>
+                        <a
+                            class:list={[current ? 'text-ink' : 'text-teal hover:text-ink']}
+                            href={href}
+                            aria-current={current ? 'page' : undefined}
+                        >
+                            {text}
+                        </a>
+                    </li>
+                );
+            })
         }
     </ul>
 </aside>

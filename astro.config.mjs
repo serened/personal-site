@@ -6,7 +6,7 @@ import siteConfig from './src/data/site-config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://serenecareaga.com',
+    site: 'https://serenecareaga.com',
     vite: {
         plugins: [tailwindcss()]
     },
