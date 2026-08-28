@@ -4,7 +4,7 @@ title: Now
 
 _Last updated September 2026._
 
-Linen clothes have been packed away and my stack of sweaters have been freshened. I am officially ready for fall. Unfortunately, I am too early. Hot, humid evenings are still a regular occurrence and the neighborhood has not one single Halloween decoration visible. Alas, we are in that delicious shoulder season where the mornings are starting to feel crisper and you can taste the apple cider if you concentrate hard enough.
+Linen clothes have been packed away and my stack of sweaters has been freshened. I am officially ready for fall. Unfortunately, I am too early. Hot, humid evenings are still a regular occurrence and the neighborhood has not one single Halloween decoration visible. Alas, we are in that delicious shoulder season where the mornings are starting to feel crisper and you can taste the apple cider if you concentrate hard enough.
 
 _(That's probably just me.)_
 

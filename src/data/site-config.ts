@@ -23,7 +23,7 @@ const siteConfig: SiteConfig = {
             href: '/now'
         },
         {
-            text: 'Garden',
+            text: 'Tinkering',
             href: '/projects'
         }
     ],
