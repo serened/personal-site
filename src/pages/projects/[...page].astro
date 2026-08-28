@@ -6,17 +6,23 @@ import ProjectPreview from '../../components/ProjectPreview.astro';
 import ContentsNav from '../../components/ContentsNav.astro';
 import siteConfig from '../../data/site-config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { sortItemsByDateDesc } from '../../utils/data-utils';
+import { sortItemsByDateDesc, splitArchivedProjects } from '../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
-    return paginate(projects, { pageSize: siteConfig.projectsPerPage || 6 });
+    const { current } = splitArchivedProjects(projects);
+    const archived = projects.filter((p) => p.data.isArchived);
+    return paginate(current, {
+        pageSize: siteConfig.projectsPerPage || 6,
+        props: { archived }
+    });
 }
 
-type Props = { page: Page<CollectionEntry<'projects'>> };
+type Props = { page: Page<CollectionEntry<'projects'>>; archived: CollectionEntry<'projects'>[] };
 
-const { page } = Astro.props;
+const { page, archived } = Astro.props;
 const portfolio = page.data;
+const showArchive = page.currentPage === 1 && archived.length > 0;
 ---
 
 <BaseLayout title="Garden" description="A garden of projects and things made." showNav={false}>
@@ -25,7 +31,16 @@ const portfolio = page.data;
             <h1 class="mb-3 font-serif text-2xl leading-tight italic sm:text-4xl">Garden</h1>
             <p class="text-ink-soft mb-12 max-w-[540px] text-[17px] italic sm:mb-16">Things I'm growing and making, in the yard and on the screen.</p>
             {portfolio.map((project) => <ProjectPreview project={project} class="mb-10 sm:mb-12" />)}
-            <Pagination page={page} class="mt-16 sm:mt-20" />
+            {siteConfig.projectsPerPage && portfolio.length >= siteConfig.projectsPerPage && <Pagination page={page} class="mt-16 sm:mt-20" />}
+            {
+                showArchive && (
+                    <section class="mt-16 border-t border-rule pt-12 sm:mt-20 sm:pt-16">
+                        <h2 class="mb-3 font-serif text-lg leading-tight italic sm:text-xl">Archive</h2>
+                        <p class="text-ink-soft mb-8 max-w-[540px] text-[15px] italic sm:mb-12">Past projects, set aside for now.</p>
+                        {archived.map((project) => <ProjectPreview project={project} class="mb-10 sm:mb-12" />)}
+                    </section>
+                )
+            }
         </div>
         <ContentsNav />
     </div>
