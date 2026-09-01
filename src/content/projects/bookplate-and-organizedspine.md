@@ -14,6 +14,3 @@ These two are the reason I left nursing. Bookplate and OrganizedSpine are invent
 ## Where it's headed
 
 Bookplate launched with the help of a small crew of beta readers. I am heads-down on the work that comes after a launch: paid plans, the rough edges, and the features booksellers keep asking for.
-
-<!-- Add screenshots when ready: drop files in src/assets/images/ and reference them like:
-![A short caption](../../assets/images/bookplate.jpg) -->

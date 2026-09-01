@@ -4,15 +4,14 @@ description: 'Pressing and hang-drying cuttings from the garden to keep the seas
 publishDate: 'Jun 01 2026'
 ---
 
-Every year I lose the garden to autumn, so I started pressing and hang-drying cuttings to hold onto it a little longer. Right now most of what I dry is headed toward handmade bookmarks for the beta readers who helped me launch Bookplate.
+As a city dweller living in a paved paradise, I crave plants and flowers. My neighborhood's planter box game is strong so I am not deprived, but I want the beautiful colors around me for longer. 
+
+This year I invested in a [beautiful flower press](https://www.etsy.com/listing/632295690/handmade-dark-wood-flower-press-kit) to preserve the flowers better. Most of what I have pressed is allocated toward handmade bookmarks for the beta readers who helped me launch Bookplate, and anything remaining will be incorporated into handmade paper.
 
 ## What I'm drying
 
-A rotating mix from the yard: herbs going to seed, dahlias as they fade, whatever holds its shape. Pressing for the flat pieces, hanging in small bunches for the rest.
+I was able to source some lovely fern fronds and hibiscus flowers from my own backyard. I also sourced some beautiful witch hazel from a visit to Laurel Hill. I'm looking forward to drying marigolds next.
 
 ## Notes
 
-Color is the hard part. Some blooms keep it and some go brown no matter what I do. The plan is to pair the dried pieces with paper I am (messily) learning to make myself.
-
-<!-- Add photos when ready: drop files in src/assets/images/ and reference them like:
-![A short caption](../../assets/images/drying-flowers.jpg) -->
+Color is the hard part. Some blooms keep it and some go brown no matter what I do. I have started using thicker cotton pads over larger flowers (versus the smaller and more manageable individual petals). Since each round takes about three weeks to fully dry, this has been a wonderful journey encouraging patience and wonder.

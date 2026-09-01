@@ -107,7 +107,6 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 
 ## Credits
 
-- Demo content generate with [Chat GPT](https://chat.openai.com/)
 - Images for demo content from [Unsplash](https://unsplash.com/)
 
 ## Astro Themes by Just Good UI

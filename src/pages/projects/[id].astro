@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import ProjectPreview from '../../components/ProjectPreview.astro';
 import ContentsNav from '../../components/ContentsNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { sortItemsByDateDesc } from '../../utils/data-utils';
+import { sortItemsByDateDesc, seasonLabel } from '../../utils/data-utils';
 
 export async function getStaticPaths() {
     const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
@@ -25,7 +25,7 @@ type Props = {
 };
 
 const { project, prevProject, nextProject } = Astro.props;
-const { title, description, seo } = project.data;
+const { title, description, seo, isArchived, publishDate } = project.data;
 const { Content } = await render(project);
 ---
 
@@ -35,6 +35,11 @@ const { Content } = await render(project);
             <article>
                 <header class="mb-8">
                     <h1 class="font-serif text-3xl leading-tight font-medium sm:text-5xl sm:leading-tight">{title}</h1>
+                    {isArchived && (
+                        <p class="text-ink-soft mt-3 text-sm uppercase tracking-wide">
+                            Archived &middot; {seasonLabel(publishDate)}
+                        </p>
+                    )}
                 </header>
                 <div class="prose sm:prose-lg max-w-none">
                     <Content />

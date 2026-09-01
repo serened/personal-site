@@ -1,11 +1,12 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import ArrowRight from '../assets/icons/arrow-right.svg';
+import { seasonLabel } from '../utils/data-utils';
 
 type Props = { project: CollectionEntry<'projects'>; class?: string; headingLevel?: 'h2' | 'h3' };
 
 const { project, class: className, headingLevel = 'h2' } = Astro.props;
-const { title, description } = project.data;
+const { title, description, isArchived, publishDate } = project.data;
 const TitleTag = headingLevel;
 ---
 
@@ -17,6 +18,7 @@ const TitleTag = headingLevel;
             {title}
         </TitleTag>
         {description && <div class="mt-1 text-sm leading-normal">{description}</div>}
+        {isArchived && <div class="text-ink-soft mt-1 text-xs uppercase tracking-wide">{seasonLabel(publishDate)}</div>}
     </div>
     <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:shrink-0 sm:items-center sm:gap-1">
         View Project <ArrowRight class="h-4 w-4 fill-current" />

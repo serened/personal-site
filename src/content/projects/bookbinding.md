@@ -13,6 +13,3 @@ The basics, for now: folding signatures, sewing them together, and wrapping a co
 ## Notes
 
 It pairs with the paper I am learning to make, so the real goal is a book that is mine end to end, from pulp to cover. Recommendations for good beginner resources are always welcome.
-
-<!-- Add photos when ready: drop files in src/assets/images/ and reference them like:
-![A short caption](../../assets/images/bookbinding.jpg) -->
